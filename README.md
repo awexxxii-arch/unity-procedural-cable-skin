@@ -1,10 +1,12 @@
 # ProceduralCableSkin
 
-![Demo](demo.gif)
+![Demo](./demo.gif)
 
-Procedural cable / rope mesh generator for Unity.
+Procedural cable mesh generator for Unity.
 
-This component builds a tubular mesh from ordered control points, supports linear and Catmull-Rom path interpolation, updates in Edit Mode and Play Mode, and can bake the result into a Mesh asset or Prefab.
+This component builds a tube mesh from ordered control points, supports linear and Catmull-Rom interpolation, updates in Edit Mode and Play Mode, and can bake the generated result into a Mesh asset or Prefab.
+
+Tested in **Unity 6000.0.63f1** with the **Built-in Render Pipeline**.
 
 ## Features
 
@@ -12,34 +14,52 @@ This component builds a tubular mesh from ordered control points, supports linea
 - Supports `Linear` and `CatmullRom` path modes
 - Adjustable radius, side count, and UV tiling
 - Optional double-sided geometry
-- Auto-update in Edit Mode and Play Mode
-- Custom inspector buttons for adding points
+- Automatic rebuild in Edit Mode and Play Mode
+- Inspector buttons for adding points at the start or end
 - Bake to Mesh asset
 - Bake to Prefab
 
-## How to use
+## Installation
 
-1. Add `ProceduralCableSkin` to a GameObject with `MeshFilter` and `MeshRenderer`.
-2. Assign ordered point transforms to the `points` array.
-3. Tune:
-   - `pathMode`
-   - `stepsPerSegment`
-   - `radius`
-   - `sides`
-   - `uvMultiply`
-4. Use **Add Start** / **Add** in the inspector to create more points.
-5. Use **Bake Mesh** to save a baked mesh asset.
-6. Use **Bake Prefab** to save a baked prefab.
+Copy `ProceduralCableSkin.cs` into your Unity project.
+
+## Usage
+
+1. Create or select a GameObject with:
+   - `MeshFilter`
+   - `MeshRenderer`
+
+2. Add the `ProceduralCableSkin` component.
+
+3. Assign ordered transforms to the `points` array.
+
+4. Adjust:
+   - `Path Mode`
+   - `Steps Per Segment`
+   - `Radius`
+   - `Sides`
+   - `UV Multiply`
+
+5. Use the inspector buttons:
+   - `Add Start`
+   - `Add`
+   - `Bake Mesh`
+   - `Bake Prefab`
 
 ## Notes
 
-- Editor-specific tools are wrapped in `#if UNITY_EDITOR`.
-- The mesh is rebuilt automatically in Edit Mode and Play Mode if enabled.
-- The generated mesh is assigned to the object's `MeshFilter`.
+- The component is marked with `ExecuteAlways`, so it can rebuild in Edit Mode.
+- Editor-only functionality is wrapped in `#if UNITY_EDITOR`.
+- Baking tools create mesh assets and prefabs directly from the generated cable mesh.
+
+## Tested Environment
+
+- Unity: `6000.0.63f1`
+- Render Pipeline: `Built-in`
 
 ## File
 
-- `ProceduralCableSkin.cs` — runtime component + custom editor inspector
+- `ProceduralCableSkin.cs` — runtime component and custom inspector
 
 ## License
 
