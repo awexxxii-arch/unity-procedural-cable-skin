@@ -1,10 +1,12 @@
 # ProceduralCableSkin
 
-![Demo](./demo.gif)
+![Procedural Mesh Cable](procedural-mesh-cable.png)
 
 Procedural cable mesh generator for Unity.
 
 This component builds a tube mesh from ordered control points, supports linear and Catmull-Rom interpolation, updates in Edit Mode and Play Mode, and can bake the generated result into a Mesh asset or Prefab.
+
+![Demo](./demo.gif)
 
 Tested in **Unity 6000.0.63f1** with the **Built-in Render Pipeline**.
 
